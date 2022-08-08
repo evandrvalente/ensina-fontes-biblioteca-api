@@ -1,5 +1,5 @@
 import { Router } from 'express';
 
-const booksRouter = Router();
+const BooksRouter = Router();
 
-export default booksRouter;
+export default BooksRouter;

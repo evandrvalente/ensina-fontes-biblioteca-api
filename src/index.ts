@@ -1,6 +1,7 @@
 import express, { NextFunction, Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
 import 'express-async-errors';
+import BooksRouter from './routes/books.routes';
 
 const app = express();
 
@@ -8,6 +9,9 @@ app.use(express.json());
 
 const PORT = 8000;
 
+app.use(BooksRouter);
+
+// error middleware
 app.get('/', (req: Request, res: Response) => {
     res.status(StatusCodes.OK).send('Express + TypeScript')
 });
