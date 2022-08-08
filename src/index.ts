@@ -2,12 +2,13 @@ import express, { NextFunction, Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
 import 'express-async-errors';
 import BooksRouter from './routes/books.routes';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const app = express();
 
 app.use(express.json());
-
-const PORT = 8000;
 
 app.use(BooksRouter);
 
@@ -38,6 +39,6 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
     next();
   });
 
-app.listen(PORT, () => {
-    console.log(`Server is running at http://localhost:${PORT}`);
+app.listen(process.env.PORT, () => {
+    console.log(`Server is running at http://localhost:${process.env.PORT}`);
 });
