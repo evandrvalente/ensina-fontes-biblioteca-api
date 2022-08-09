@@ -13,7 +13,6 @@ app.use(express.json());
 
 app.use(BooksRouter);
 
-// error middleware
 app.get('/', (req: Request, res: Response) => {
     res.status(StatusCodes.OK).send('Express + TypeScript')
 });
